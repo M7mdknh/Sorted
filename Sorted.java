@@ -1,11 +1,11 @@
 public class Sorted {
-    public static void insertionSort(int[] arr) {
+    public static void insertionSort(String[] arr) {
         int n = arr.length;
         for (int i = 1; i < n; ++i) {
-            int key = arr[i];
+            String key = arr[i];
             int j = i - 1;
 
-            while (j >= 0 && arr[j] > key) {
+            while (j >= 0 && arr[j].compareTo(key) > 0) {
                 arr[j + 1] = arr[j];
                 j = j - 1;
             }
@@ -13,31 +13,37 @@ public class Sorted {
         }
     }
 
-    public static void printArray(int[] arr) {
-        for (int i : arr) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
-    }
-
-    public static void selectionSort(int[] arr) {
+    public static void selectionSort(String[] arr) {
         int n = arr.length;
 
         for (int i = 0; i < n - 1; i++) {
-
             int minIndex = i;
             for (int j = i + 1; j < n; j++) {
-                if (arr[j] < arr[minIndex]) {
+                if (arr[j].compareToIgnoreCase(arr[minIndex]) < 0) {
                     minIndex = j;
                 }
             }
 
-            int temp = arr[minIndex];
+            String temp = arr[minIndex];
             arr[minIndex] = arr[i];
             arr[i] = temp;
         }
     }
 
+    public static void printArray(String[] arr) {
+        for (String s : arr) {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+    }
+
+
+
+    public static void sort(String[] array){
+        insertionSort(array);
+    }
+
 
 
 }
+
